@@ -43,3 +43,12 @@ section {
 summary {
     cursor: pointer;
 }
+
+.entertainment-card {
+    height: 100%;
+}
+
+#tt-tickets-widget {
+    max-width: 800px;
+    margin: 0 auto;
+}
