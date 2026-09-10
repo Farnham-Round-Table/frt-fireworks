@@ -43,3 +43,29 @@ section {
 summary {
     cursor: pointer;
 }
+
+.entertainment-card {
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-image .title.is-2 {
+        font-size: 2rem;
+        line-height: 1.25;
+    }
+
+    .hero-image .subtitle.is-4 {
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hero-image .title.is-2 {
+        font-size: 1.65rem;
+    }
+}
+
+#tt-tickets-widget {
+    max-width: 800px;
+    margin: 0 auto;
+}
