@@ -69,3 +69,133 @@ summary {
     max-width: 800px;
     margin: 0 auto;
 }
+
+.map-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.event-map {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.map-park {
+    fill: #eef6ea;
+    stroke: #c9dfc0;
+    stroke-width: 3;
+}
+
+.map-firework-enclosure {
+    fill: #f7e9e7;
+    stroke: #e3b6b0;
+    stroke-width: 3;
+}
+
+.map-road {
+    fill: none;
+    stroke: #cfcac2;
+    stroke-width: 16;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.map-zone {
+    cursor: pointer;
+}
+
+.map-hit-area {
+    fill: transparent;
+    pointer-events: fill;
+}
+
+.map-zone rect,
+.map-zone circle {
+    transition: filter .15s ease;
+}
+
+.map-zone:hover rect,
+.map-zone:hover circle,
+.map-zone:focus rect,
+.map-zone:focus circle,
+.map-zone.is-active rect,
+.map-zone.is-active circle {
+    filter: brightness(1.15);
+    stroke: #1f2933;
+    stroke-width: 3px;
+}
+
+.map-zone:focus {
+    outline: none;
+}
+
+.zone-label {
+    font-family: inherit;
+    pointer-events: none;
+}
+
+.zone-label-light {
+    fill: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.zone-label-dark {
+    fill: #1f2933;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.zone-label-small {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.zone-label-icon {
+    font-size: 26px;
+    font-style: italic;
+}
+
+#map-info-panel {
+    border: 2px solid #ffdd57;
+}
+
+.map-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: .5rem;
+    margin-top: 1rem;
+}
+
+.map-legend-item {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 6px;
+    padding: .5rem .65rem;
+    cursor: pointer;
+    text-align: left;
+    font-size: .9rem;
+    font-family: inherit;
+}
+
+.map-legend-item:hover,
+.map-legend-item:focus {
+    border-color: #1f2933;
+}
+
+.map-legend-item.is-active {
+    border-color: #1f2933;
+    background: #fffbea;
+}
+
+.map-legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex: 0 0 auto;
+}
