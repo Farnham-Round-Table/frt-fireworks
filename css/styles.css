@@ -48,6 +48,27 @@ summary {
     height: 100%;
 }
 
+.social-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    color: inherit;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+.social-icon-link .icon {
+    font-size: 1.75rem;
+}
+
+.social-icon-link:hover,
+.social-icon-link:focus {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: inherit;
+}
+
 .sponsor-placeholder {
     height: 100%;
     border: 2px dashed #b5b5b5;
