@@ -18,6 +18,13 @@ const rendered = await Promise.all(acts.map(async (a) => ({ ...a.data, Content: 
           rendered.map((a) => (
             <div class="cell">
               <div class="card entertainment-card">
+                {a.logo && (
+                  <div class="card-image has-text-centered p-4">
+                    <figure class="image is-128x128 is-inline-block">
+                      <img src={`/img/entertainment/${a.logo}`} alt={`${a.name} logo`} loading="lazy" />
+                    </figure>
+                  </div>
+                )}
                 <div class="card-content">
                   <span class="icon-text">
                     <span class="icon has-text-warning">
@@ -27,6 +34,13 @@ const rendered = await Promise.all(acts.map(async (a) => ({ ...a.data, Content: 
                   <p class="title is-5 mt-2">{a.name}</p>
                   <p class="subtitle is-6">{a.subtitle}</p>
                   <a.Content />
+                  {a.link && (
+                    <p class="mt-3">
+                      <a href={a.link} target="_blank" rel="noopener">
+                        {a.linkLabel} <span class="icon is-small"><i class="fa-solid fa-arrow-up-right-from-square" /></span>
+                      </a>
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

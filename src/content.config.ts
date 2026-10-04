@@ -51,7 +51,10 @@ const entertainment = defineCollection({
     subtitle: z.string(),
     icon: z.string().regex(/^[a-z0-9-]+$/, 'use a Font Awesome icon name such as "guitar"'),
     order,
-  }),
+    logo: z.string().optional(),
+    link: url.optional(),
+    linkLabel: z.string().optional(),
+  }).refine((v) => !v.link || v.linkLabel, { message: 'linkLabel is needed when link is set', path: ['linkLabel'] }),
 });
 
 const timeline = defineCollection({
