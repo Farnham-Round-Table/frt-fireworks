@@ -1,8 +1,11 @@
 ---
-name: "Live Band"
+name: "Late to the Party"
 subtitle: "Main Stage"
 icon: "guitar"
 order: 10
+logo: "late-to-the-party.png"
+link: "http://latetotheparty.co.uk/"
+linkLabel: "Visit website"
 ---
 
-Our headline band plays two high-energy sets, opening the evening and closing out the night after the fireworks.
+Farnham's own covers band play two sets on the main stage, opening the evening and closing out the night after the fireworks. Expect a mix of classic rock, Americana and indie.

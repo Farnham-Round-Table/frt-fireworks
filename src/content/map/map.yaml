@@ -28,8 +28,8 @@ zones:
     name: "Taiko Drummers — Side Stage"
     description: "Thunderous drumming at 6:15pm, plus a special set beside the bonfire at 7pm."
   "band":
-    name: "Live Band — Main Stage"
-    description: "Our headline band plays two sets — opening at 5:30pm and closing the night at 8pm."
+    name: "Late to the Party — Main Stage"
+    description: "Late to the Party play two sets — opening at 5:30pm and closing the night at 8pm."
   "food-south":
     name: "Food Stalls"
     description: "More food vendors serving from 5pm–9pm — past years have included BBQ, burgers, German sausages, Thai, vegan, loaded fries, Korean street food, churros and more."
