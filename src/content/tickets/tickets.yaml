@@ -1,0 +1,20 @@
+# Ticket prices and the Ticket Tailor box office link.
+ticketTailorUrl: "https://www.tickettailor.com/all-tickets/farnhamroundtable/"
+note: "Prices rise the closer we get to the event, so book early!"
+# The pricing periods, left to right. Every ticket below needs one price per period.
+tiers:
+  - name: "Early bird"
+    until: "until midnight Sunday 11th October"
+  - name: "Advance"
+    until: "until midnight Saturday 31st October"
+  - name: "Final week"
+    until: "from 1st November"
+tickets:
+  - name: "Kids"
+    prices: ["3.50", "5.00", "6.00"]
+  - name: "Adults"
+    prices: ["8.00", "11.00", "13.00"]
+  - name: "Family of 4 (2 adults, 2 children)"
+    prices: ["19.00", "27.00", "32.00"]
+  - name: "Family of 5 (2 adults, 3 children)"
+    prices: ["22.50", "32.00", "38.00"]

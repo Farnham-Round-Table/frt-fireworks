@@ -1,0 +1,52 @@
+---
+import { loadSection, loadSingle } from '../lib/sections';
+import SectionHeading from './SectionHeading.astro';
+
+const s = await loadSection('tickets');
+const t = await loadSingle('tickets', 'tickets');
+const site = await loadSingle('site', 'site');
+const shortUrl = t.ticketTailorUrl.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+---
+
+<section id="tickets" class="section">
+  <div class="container">
+    <SectionHeading icon={s.icon} title={s.title} />
+    <s.Content />
+    <h2 class="title is-4 mt-5">Ticket prices</h2>
+    <p>{t.note}</p>
+    <div class="table-container mt-3">
+      <table class="table is-striped is-fullwidth">
+        <thead>
+          <tr>
+            <th>Ticket</th>
+            {t.tiers.map((tier) => <th>{tier.name}<br /><small class="has-text-weight-normal">{tier.until}</small></th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            t.tickets.map((ticket) => (
+              <tr>
+                <td>{ticket.name}</td>
+                {ticket.prices.map((p) => <td>&pound;{p}</td>)}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <div id="tt-tickets-widget">
+      <!-- Ticket Tailor Widget. Do not change the code or the widget may not work properly. -->
+      <div class="tt-widget">
+        <div class="tt-widget-fallback">
+          <p>
+            <a href={t.ticketTailorUrl} target="_blank">Click here to buy tickets</a><br />
+            <small><a href="https://www.tickettailor.com?rf=wdg_104144" class="tt-widget-powered">Sell tickets online with Ticket Tailor</a></small>
+          </p>
+        </div>
+        <script is:inline src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url={t.ticketTailorUrl} data-type="inline" data-inline-minimal="true" data-inline-show-logo="false" data-inline-bg-fill="false" data-inline-inherit-ref-from-url-param="" data-inline-ref=""></script>
+      </div>
+      <!-- End of Ticket Tailor Widget -->
+    <p class="mt-4">Having trouble with the widget above? You can also buy tickets directly at <a href={t.ticketTailorUrl} target="_blank" rel="noopener">{shortUrl}</a>, or email <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a> for group bookings and accessibility requirements.</p>
+    </div>
+  </div>
+</section>

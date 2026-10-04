@@ -1,0 +1,57 @@
+# What the popup says when someone taps each place on the map.
+zones:
+  "birdies":
+    name: "Birdies Coffee House"
+    description: "Grab a coffee or hot drink from Birdies, who also run additional food vendors in the car park here."
+  "food-north":
+    name: "Food Stalls"
+    description: "Food vendors serving from 5pm–9pm — past years have included BBQ, burgers, German sausages, Thai, vegan, loaded fries, Korean street food, churros and more."
+  "first-aid":
+    name: "First Aid"
+    description: "St John Ambulance are based here, near the main entrance. In an emergency, always call 999 first."
+  "info":
+    name: "Info Tent"
+    description: "This is where lost children are brought, and the place to go for lost property or any ticket issues on the night."
+  "novelties":
+    name: "Novelties"
+    description: "Light-up novelties for younger participants who aren't old enough to carry a torch in the procession."
+  "toilets":
+    name: "Toilets"
+    description: "Toilets and urinals in the car park beside the event."
+  "bar":
+    name: "Bar & Drinks"
+    description: "Bootleg Bars (bar and mulled wine) and Coffee Can (tea, coffee and hot chocolate)."
+  "fire-performers":
+    name: "Fire Performers — Satellite Stage"
+    description: "Flame and flow artists perform two dazzling sets, at 6:45pm and 7:20pm."
+  "taiko":
+    name: "Taiko Drummers — Side Stage"
+    description: "Thunderous drumming at 6:15pm and 7:30pm, plus a special set beside the bonfire at 7pm."
+  "band":
+    name: "Live Band — Main Stage"
+    description: "Our headline band plays two sets — opening at 5:30pm and closing the night at 8pm."
+  "food-south":
+    name: "Food Stalls"
+    description: "More food vendors serving from 5pm–9pm — past years have included BBQ, burgers, German sausages, Thai, vegan, loaded fries, Korean street food, churros and more."
+  "bonfire":
+    name: "Bonfire"
+    description: "Guy judging and bonfire lighting at 7:15pm, with Taiko drummers performing alongside at 7pm."
+  "fireworks":
+    name: "Fireworks Field"
+    description: "The main fireworks display lights up the sky at 7:45pm for around 15 minutes."
+  "main-entrance":
+    name: "Main Entrance"
+    description: "Enter here from the road. Torch ticket holders should arrive before 5:45pm to collect their torch and join the procession."
+  "bear-lane":
+    name: "Bear Lane Entrance"
+    description: "An alternative entrance via a steep path — the park is on a hill and can get muddy, so wear suitable footwear."
+keyTimings:
+  - "17:00 — Park opens"
+  - "18:00 — Torchlit procession"
+  - "19:15 — Bonfire lighting"
+  - "19:45 — Fireworks"
+  - "21:00 — Event ends"
+goodToKnow:
+  - "Lost children are brought to the Info tent."
+  - "Please don't bring sparklers or your own fireworks."
+  - "The park gets muddy — come dressed for the weather."

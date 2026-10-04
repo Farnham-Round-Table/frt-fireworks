@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from 'astro:content';
+import { loadSection } from '../lib/sections';
+import SectionHeading from './SectionHeading.astro';
+
+const s = await loadSection('vendors');
+const vendors = (await getCollection('vendors')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(vendors.map(async (v) => ({ ...v.data, Content: (await render(v)).Content })));
+---
+
+<section id="vendors" class="section">
+  <div class="container">
+    <SectionHeading icon={s.icon} title={s.title} />
+    <s.Content />
+    <div class="columns is-multiline">
+      {
+        rendered.map((v) => (
+          <div class="column is-12-mobile is-6-tablet is-4-desktop">
+            <div class="card" style="height:100%">
+              {v.logo && (
+                <div class="card-image has-text-centered p-4">
+                  <figure class="image is-128x128 is-inline-block">
+                    <img src={`/img/vendors/${v.logo}`} alt={`${v.name} logo`} loading="lazy" />
+                  </figure>
+                </div>
+              )}
+              <div class="card-content">
+                <p class="title is-5">{v.name}</p>
+                <p class="subtitle is-6 has-text-warning">{v.type}</p>
+                <v.Content />
+                {v.link && (
+                  <p class="mt-3">
+                    <a href={v.link} target="_blank" rel="noopener">
+                      {v.linkLabel} <span class="icon is-small"><i class="fa-solid fa-arrow-up-right-from-square" /></span>
+                    </a>
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

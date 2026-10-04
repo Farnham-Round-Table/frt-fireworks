@@ -1,0 +1,39 @@
+---
+import { getCollection, render } from 'astro:content';
+import { loadSection } from '../lib/sections';
+import SectionHeading from './SectionHeading.astro';
+
+const s = await loadSection('entertainment');
+const acts = (await getCollection('entertainment')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(acts.map(async (a) => ({ ...a.data, Content: (await render(a)).Content })));
+---
+
+<section id="entertainment" class="section">
+  <div class="container">
+    <SectionHeading icon={s.icon} title={s.title} />
+    <s.Content />
+    <div class="fixed-grid has-1-cols-mobile has-2-cols-tablet has-3-cols-desktop">
+      <div class="grid">
+        {
+          rendered.map((a) => (
+            <div class="cell">
+              <div class="card entertainment-card">
+                <div class="card-content">
+                  <span class="icon-text">
+                    <span class="icon has-text-warning">
+                      <i class={`fa-solid fa-${a.icon} fa-2x`} />
+                    </span>
+                  </span>
+                  <p class="title is-5 mt-2">{a.name}</p>
+                  <p class="subtitle is-6">{a.subtitle}</p>
+                  <a.Content />
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <p class="has-text-centered mt-4"><a href="#whatson">See the full running order &rarr;</a></p>
+  </div>
+</section>

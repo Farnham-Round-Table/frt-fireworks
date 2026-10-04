@@ -1,0 +1,161 @@
+---
+import { loadSection, loadSingle } from '../lib/sections';
+import SectionHeading from './SectionHeading.astro';
+
+const s = await loadSection('map');
+const { zones, keyTimings, goodToKnow } = await loadSingle('map', 'map');
+---
+
+<section id="map" class="section">
+  <div class="container">
+    <SectionHeading icon={s.icon} title={s.title} />
+    <s.Content />
+
+    <div class="map-wrap">
+    <svg id="event-map-svg" class="event-map" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="event-map-title">
+        <title id="event-map-title">Interactive map of the Farnham Fireworks event in Farnham Park</title>
+
+        <rect class="map-park" x="20" y="30" width="660" height="590" rx="30" />
+        <rect class="map-firework-enclosure" x="740" y="110" width="230" height="470" rx="20" />
+
+        <path class="map-road" d="M20,95 L300,95 L680,95" />
+        <path class="map-road" d="M0,120 L55,230 L40,350 L90,560" />
+        <path class="map-road" d="M725,10 L710,240 L560,675" />
+        <path class="map-road" d="M300,610 L650,610 L960,610" />
+
+        <g class="map-zone" data-id="birdies" data-name={zones['birdies'].name} data-desc={zones['birdies'].description}>
+            <title>{zones['birdies'].name}</title>
+            <rect x="185" y="42" width="115" height="48" rx="8" fill="#8a9a7b" />
+            <text x="242" y="62" text-anchor="middle" class="zone-label zone-label-light">Birdies</text>
+            <text x="242" y="80" text-anchor="middle" class="zone-label zone-label-light zone-label-small">Coffee House</text>
+        </g>
+
+        <g class="map-zone" data-id="food-north" data-name={zones['food-north'].name} data-desc={zones['food-north'].description}>
+            <title>{zones['food-north'].name}</title>
+            <rect x="75" y="52" width="95" height="40" rx="8" fill="#f5a623" />
+            <text x="122" y="78" text-anchor="middle" class="zone-label zone-label-light">Food</text>
+        </g>
+
+        <g class="map-zone" data-id="first-aid" data-name={zones['first-aid'].name} data-desc={zones['first-aid'].description}>
+            <title>{zones['first-aid'].name}</title>
+            <rect class="map-hit-area" x="25" y="132" width="215" height="64" />
+            <rect x="30" y="140" width="54" height="48" rx="8" fill="#2e9e4f" />
+            <rect x="52" y="150" width="10" height="28" fill="#fff" />
+            <rect x="42" y="160" width="30" height="10" fill="#fff" />
+            <text x="92" y="170" class="zone-label zone-label-dark">First Aid</text>
+        </g>
+
+        <g class="map-zone" data-id="info" data-name={zones['info'].name} data-desc={zones['info'].description}>
+            <title>{zones['info'].name}</title>
+            <rect class="map-hit-area" x="110" y="165" width="85" height="95" />
+            <circle cx="150" cy="225" r="24" fill="#1f4e8c" />
+            <text x="150" y="234" text-anchor="middle" class="zone-label zone-label-light zone-label-icon">i</text>
+            <text x="150" y="192" text-anchor="middle" class="zone-label zone-label-dark">Info</text>
+        </g>
+
+        <g class="map-zone" data-id="novelties" data-name={zones['novelties'].name} data-desc={zones['novelties'].description}>
+            <title>{zones['novelties'].name}</title>
+            <rect class="map-hit-area" x="185" y="198" width="160" height="55" />
+            <rect x="190" y="203" width="54" height="44" rx="8" fill="#4fb3e8" />
+            <text x="250" y="229" class="zone-label zone-label-dark">Novelties</text>
+        </g>
+
+        <g class="map-zone" data-id="toilets" data-name={zones['toilets'].name} data-desc={zones['toilets'].description}>
+            <title>{zones['toilets'].name}</title>
+            <rect class="map-hit-area" x="32" y="270" width="76" height="90" />
+            <rect x="38" y="275" width="64" height="54" rx="8" fill="#4fb3e8" />
+            <text x="70" y="308" text-anchor="middle" class="zone-label zone-label-light zone-label-small">WC</text>
+            <text x="70" y="347" text-anchor="middle" class="zone-label zone-label-dark">Toilets</text>
+        </g>
+
+        <g class="map-zone" data-id="bar" data-name={zones['bar'].name} data-desc={zones['bar'].description}>
+            <title>{zones['bar'].name}</title>
+            <rect x="112" y="275" width="64" height="95" rx="8" fill="#f5a623" />
+            <text x="144" y="315" text-anchor="middle" class="zone-label zone-label-light">Bar</text>
+            <text x="144" y="335" text-anchor="middle" class="zone-label zone-label-light zone-label-small">&amp; Drinks</text>
+        </g>
+
+        <g class="map-zone" data-id="fire-performers" data-name={zones['fire-performers'].name} data-desc={zones['fire-performers'].description}>
+            <title>{zones['fire-performers'].name}</title>
+            <rect x="225" y="330" width="62" height="56" rx="8" fill="#8b5cf6" />
+            <text x="256" y="405" text-anchor="middle" class="zone-label zone-label-dark">Fire Performers</text>
+        </g>
+
+        <g class="map-zone" data-id="taiko" data-name={zones['taiko'].name} data-desc={zones['taiko'].description}>
+            <title>{zones['taiko'].name}</title>
+            <rect x="400" y="150" width="100" height="62" rx="10" fill="#8b5cf6" transform="rotate(-6 450 181)" />
+            <text x="450" y="140" text-anchor="middle" class="zone-label zone-label-dark">Taiko Drummers</text>
+        </g>
+
+        <g class="map-zone" data-id="band" data-name={zones['band'].name} data-desc={zones['band'].description}>
+            <title>{zones['band'].name}</title>
+            <rect x="600" y="140" width="100" height="65" rx="10" fill="#8b5cf6" transform="rotate(16 650 172)" />
+            <text x="650" y="128" text-anchor="middle" class="zone-label zone-label-dark">Band</text>
+        </g>
+
+        <g class="map-zone" data-id="food-south" data-name={zones['food-south'].name} data-desc={zones['food-south'].description}>
+            <title>{zones['food-south'].name}</title>
+            <rect x="225" y="430" width="380" height="46" rx="10" fill="#f5a623" />
+            <text x="415" y="459" text-anchor="middle" class="zone-label zone-label-light">Food</text>
+        </g>
+
+        <g class="map-zone" data-id="bonfire" data-name={zones['bonfire'].name} data-desc={zones['bonfire'].description}>
+            <title>{zones['bonfire'].name}</title>
+            <circle cx="100" cy="505" r="50" fill="#e0362f" />
+            <text x="100" y="512" text-anchor="middle" class="zone-label zone-label-light">Bonfire</text>
+        </g>
+
+        <g class="map-zone" data-id="fireworks" data-name={zones['fireworks'].name} data-desc={zones['fireworks'].description}>
+            <title>{zones['fireworks'].name}</title>
+            <circle cx="855" cy="300" r="78" fill="#e0362f" />
+            <text x="855" y="295" text-anchor="middle" class="zone-label zone-label-light">Fireworks</text>
+            <text x="855" y="320" text-anchor="middle" class="zone-label zone-label-light">Field</text>
+        </g>
+
+        <g class="map-zone" data-id="main-entrance" data-name={zones['main-entrance'].name} data-desc={zones['main-entrance'].description}>
+            <title>{zones['main-entrance'].name}</title>
+            <rect class="map-hit-area" x="0" y="90" width="180" height="42" />
+            <circle cx="14" cy="110" r="14" fill="#1f2933" />
+            <text x="34" y="116" class="zone-label zone-label-dark">Main Entrance</text>
+        </g>
+
+        <g class="map-zone" data-id="bear-lane" data-name={zones['bear-lane'].name} data-desc={zones['bear-lane'].description}>
+            <title>{zones['bear-lane'].name}</title>
+            <rect class="map-hit-area" x="325" y="658" width="260" height="40" />
+            <circle cx="560" cy="675" r="14" fill="#1f2933" />
+            <text x="540" y="681" text-anchor="end" class="zone-label zone-label-dark">Bear Lane Entrance</text>
+        </g>
+    </svg>
+
+      <div id="map-info-panel" class="box">
+        <p class="title is-5" id="map-info-title">Explore the map</p>
+        <p id="map-info-desc">Tap or click a location on the map, or choose from the list below, to see what's there.</p>
+      </div>
+
+      <div class="map-legend" id="map-legend"></div>
+
+      <div class="columns mt-4">
+        <div class="column">
+          <div class="box">
+            <p class="title is-6">Key Timings</p>
+            <ul>
+              {keyTimings.map((t) => <li>{t}</li>)}
+            </ul>
+            <p class="mt-2"><a href="#whatson">See the full running order &rarr;</a></p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <p class="title is-6">Good to know</p>
+            <ul>
+              {goodToKnow.map((t) => <li>{t}</li>)}
+            </ul>
+            <p class="mt-2"><a href="#faqs">Read the full FAQs &rarr;</a></p>
+          </div>
+        </div>
+      </div>
+
+      <p><a href="/img/Farnham-Fireworks-Map-1.png" target="_blank" rel="noopener">Download a printable version of the map (PNG)</a></p>
+    </div>
+  </div>
+</section>
