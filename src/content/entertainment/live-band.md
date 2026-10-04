@@ -3,7 +3,6 @@ name: "Late to the Party"
 subtitle: "Main Stage"
 icon: "guitar"
 order: 10
-logo: "late-to-the-party.png"
 link: "http://latetotheparty.co.uk/"
 linkLabel: "Visit website"
 ---
