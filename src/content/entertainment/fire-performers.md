@@ -5,4 +5,4 @@ icon: "fire"
 order: 30
 ---
 
-Spectacular flame and flow artists light up the satellite stage with two dazzling sets before the bonfire is lit.
+Spectacular flame and flow artists light up the satellite stage with two dazzling sets, one before and one after the bonfire is lit.

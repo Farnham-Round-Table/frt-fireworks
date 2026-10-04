@@ -23,10 +23,10 @@ zones:
     description: "Bootleg Bars (bar and mulled wine) and Coffee Can (tea, coffee and hot chocolate)."
   "fire-performers":
     name: "Fire Performers — Satellite Stage"
-    description: "Flame and flow artists perform two dazzling sets, at 6:45pm and 7:20pm."
+    description: "Flame and flow artists perform two dazzling sets, at 6:45pm and 7:30pm."
   "taiko":
     name: "Taiko Drummers — Side Stage"
-    description: "Thunderous drumming at 6:15pm and 7:30pm, plus a special set beside the bonfire at 7pm."
+    description: "Thunderous drumming at 6:15pm, plus a special set beside the bonfire at 7pm."
   "band":
     name: "Live Band — Main Stage"
     description: "Our headline band plays two sets — opening at 5:30pm and closing the night at 8pm."
