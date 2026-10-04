@@ -1,0 +1,31 @@
+---
+import { loadSection, loadSingle } from '../lib/sections';
+import SectionHeading from './SectionHeading.astro';
+
+const s = await loadSection('whatson');
+const { entries } = await loadSingle('timeline', 'timeline');
+---
+
+<section id="whatson" class="section">
+  <div class="container">
+    <SectionHeading icon={s.icon} title={s.title} />
+    <s.Content />
+    {
+      entries.map((e) => (
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img class="is-rounded" src="/img/round.jpg" alt="image text" />
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h2 class="title is-4">{e.time}</h2>
+              <p>{e.text}</p>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

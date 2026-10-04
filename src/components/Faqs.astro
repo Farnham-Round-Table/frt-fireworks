@@ -1,0 +1,24 @@
+---
+import { getCollection, render } from 'astro:content';
+import { loadSection } from '../lib/sections';
+import SectionHeading from './SectionHeading.astro';
+
+const s = await loadSection('faqs');
+const faqs = (await getCollection('faqs')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(faqs.map(async (f) => ({ ...f.data, Content: (await render(f)).Content })));
+---
+
+<section id="faqs" class="section">
+  <div class="container">
+    <SectionHeading icon={s.icon} title={s.title} />
+    <s.Content />
+    {
+      rendered.map((f) => (
+        <details name="faq" class="box">
+          <summary class="title is-5">{f.question}</summary>
+          <f.Content />
+        </details>
+      ))
+    }
+  </div>
+</section>

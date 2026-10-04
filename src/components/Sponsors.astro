@@ -1,0 +1,81 @@
+---
+import { getCollection, render } from 'astro:content';
+import { loadSection } from '../lib/sections';
+import SectionHeading from './SectionHeading.astro';
+
+const s = await loadSection('sponsors');
+const tiers = (await getCollection('sponsorTiers')).sort((a, b) => a.data.order - b.data.order);
+const sponsors = (await getCollection('sponsors')).sort((a, b) => a.data.order - b.data.order);
+const tierIds = tiers.map((t) => t.id);
+for (const sp of sponsors) {
+  if (!tierIds.includes(sp.data.tier)) {
+    throw new Error(`Sponsor "${sp.data.name}" has tier "${sp.data.tier}" but the tiers are: ${tierIds.join(', ')}`);
+  }
+}
+const groups = await Promise.all(
+  tiers.map(async (t) => ({
+    ...t.data,
+    Invitation: (await render(t)).Content,
+    sponsors: await Promise.all(
+      sponsors.filter((sp) => sp.data.tier === t.id).map(async (sp) => ({ ...sp.data, Content: (await render(sp)).Content })),
+    ),
+  })),
+);
+---
+
+<section id="sponsors" class="section">
+  <div class="container">
+    <SectionHeading icon={s.icon} title={s.title} />
+    <s.Content />
+    {
+      groups.map((g, i) => (
+        <>
+          <h2 class={`title is-4${i > 0 ? ' mt-5' : ''}`}>{g.title}</h2>
+          <div class={`fixed-grid has-1-cols-mobile has-${g.columns === 1 ? 1 : 2}-cols-tablet has-${g.columns}-cols-desktop`}>
+            <div class="grid">
+              {g.sponsors.map((sp) => (
+                <div class="cell">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-header-title">{sp.name}</h3>
+                    </div>
+                    <div class="card-image">
+                      {sp.logo ? (
+                        <figure class="image is-3by1">
+                          <img src={`/img/${sp.logo}`} alt={`${sp.name} logo`} />
+                        </figure>
+                      ) : (
+                        <figure class="image is-3by1 sponsor-logo-pending">
+                          <span class="icon-text">
+                            <span class="icon"><i class="fa-regular fa-image" /></span>
+                            <span>Logo coming soon</span>
+                          </span>
+                        </figure>
+                      )}
+                    </div>
+                    <div class="card-content">
+                      <sp.Content />
+                    </div>
+                    <div class="card-footer">
+                      <p class="card-footer-item"><a href={sp.link} target="_blank" rel="noopener">Their Website</a></p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {g.showInvitation && (
+                <div class="cell">
+                  <div class="card sponsor-placeholder">
+                    <div class="card-content">
+                      <p class="title is-5">{g.invitationTitle}</p>
+                      <g.Invitation />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      ))
+    }
+  </div>
+</section>
