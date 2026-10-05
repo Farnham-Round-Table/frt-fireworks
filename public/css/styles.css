@@ -266,3 +266,9 @@ summary {
 .cookie-banner .button {
     min-width: 7rem;
 }
+.cookie-banner .button {
+    border-width: 2px;
+}
+.cookie-banner .button.is-outlined {
+    background: transparent;
+}
