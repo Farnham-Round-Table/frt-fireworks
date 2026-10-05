@@ -242,3 +242,27 @@ summary {
     border-radius: 3px;
     flex: 0 0 auto;
 }
+
+/* Cookie consent banner */
+.cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    padding: 1rem;
+    background: #fff;
+    border-top: 2px solid #ffdd57;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+    max-height: 60vh;
+    overflow-y: auto;
+}
+.cookie-banner[hidden] {
+    display: none;
+}
+.cookie-banner .buttons {
+    margin-top: 0.75rem;
+}
+.cookie-banner .button {
+    min-width: 7rem;
+}

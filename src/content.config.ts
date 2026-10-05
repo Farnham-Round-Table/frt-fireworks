@@ -16,6 +16,7 @@ const site = defineCollection({
     description: z.string(),
     keywords: z.string(),
     author: z.string(),
+    googleAnalyticsId: z.string().regex(/^(G-[A-Z0-9]+)$/, 'must look like G-XXXXXXXXXX'),
     contactEmail: z.string().email(),
     facebookPageUrl: url,
     footer: z.object({ roundTableUrl: url, facebookUrl: url, instagramUrl: url }),

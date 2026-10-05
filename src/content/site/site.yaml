@@ -4,6 +4,9 @@ eventDate: 2026-11-07
 description: "Farnham Fireworks and Torchlit Procession charity fundraising event and ticketing page."
 keywords: "fireworks, farnham, bonfire, torches, food, performer, charity, tickets"
 author: "Farnham Round Table"
+# Google Analytics 4 measurement ID (starts with G-). While this is the placeholder,
+# no analytics code runs and the cookie banner is hidden. See EDITING.md.
+googleAnalyticsId: "G-XXXXXXXXXX"
 contactEmail: "fireworks@farnhamroundtable.org.uk"
 facebookPageUrl: "https://www.facebook.com/farnhamfireworks/"
 footer:

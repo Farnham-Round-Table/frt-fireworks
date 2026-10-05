@@ -1,0 +1,63 @@
+---
+import { loadSingle } from '../lib/sections';
+const { googleAnalyticsId } = await loadSingle('site', 'site');
+const enabled = googleAnalyticsId !== 'G-XXXXXXXXXX';
+---
+
+{enabled && (
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-text" hidden>
+    <div class="container">
+      <p id="cookie-banner-title" class="has-text-weight-bold">Cookies</p>
+      <p id="cookie-banner-text">We'd like to use Google Analytics cookies to count visits to this website. Nothing is set unless you accept.</p>
+      <div class="buttons">
+        <button type="button" class="button is-link" id="cookie-accept">Accept</button>
+        <button type="button" class="button is-link" id="cookie-decline">Decline</button>
+      </div>
+    </div>
+  </div>
+  <script is:inline define:vars={{ gaId: googleAnalyticsId }}>
+    (function () {
+      var KEY = 'cookie-consent';
+      var banner = document.getElementById('cookie-banner');
+      function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+      function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+      function loadGA() {
+        if (window.__gaLoaded) return;
+        window.__gaLoaded = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', gaId);
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+        document.head.appendChild(s);
+      }
+      function clearGA() {
+        var host = location.hostname.split('.');
+        var domains = [location.hostname, '.' + location.hostname, '.' + host.slice(-2).join('.')];
+        document.cookie.split(';').forEach(function (c) {
+          var name = c.split('=')[0].trim();
+          if (name === '_ga' || name.indexOf('_ga_') === 0 || name === '_gid') {
+            domains.forEach(function (d) {
+              document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + d;
+            });
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+          }
+        });
+      }
+      function show() { banner.hidden = false; document.getElementById('cookie-accept').focus(); }
+      function hide() { banner.hidden = true; }
+      document.getElementById('cookie-accept').addEventListener('click', function () { set('accepted'); hide(); loadGA(); });
+      document.getElementById('cookie-decline').addEventListener('click', function () {
+        var wasLoaded = window.__gaLoaded;
+        set('declined'); hide(); clearGA();
+        if (wasLoaded) location.reload();
+      });
+      document.getElementById('cookie-settings-link').addEventListener('click', function (e) { e.preventDefault(); show(); });
+      var saved = get();
+      if (saved === 'accepted') loadGA();
+      else if (saved !== 'declined') show();
+    })();
+  </script>
+)}

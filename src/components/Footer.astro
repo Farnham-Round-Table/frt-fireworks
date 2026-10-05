@@ -1,6 +1,6 @@
 ---
 import { loadSingle } from '../lib/sections';
-const { footer } = await loadSingle('site', 'site');
+const { footer, googleAnalyticsId } = await loadSingle('site', 'site');
 ---
 
 <footer class="footer">
@@ -20,5 +20,8 @@ const { footer } = await loadSingle('site', 'site');
         </a>
       </p>
     </div>
+    {googleAnalyticsId !== 'G-XXXXXXXXXX' && (
+      <p class="has-text-centered is-size-7"><a href="#cookie-settings" id="cookie-settings-link">Cookie settings</a></p>
+    )}
   </div>
 </footer>
