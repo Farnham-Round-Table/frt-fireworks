@@ -59,6 +59,32 @@ Keep the quote marks and the spacing exactly as in the existing files. In the te
 
 **Turn on visitor counting (Google Analytics).** Create a Google Analytics 4 property, then copy its measurement ID (it starts with `G-`). Open `src/content/site/site.yaml` and replace `G-XXXXXXXXXX` next to `googleAnalyticsId` with it. Until you do, the cookie banner and "Cookie settings" link are hidden and nothing is tracked. Once it is set, visitors see a banner with equal Accept and Decline buttons, and Google Analytics only loads after they press Accept. Their choice is remembered, and they can change it from "Cookie settings" in the footer.
 
+## Tracking where visitors come from
+
+Once Google Analytics is on, you can see which posts bring visitors by giving each place you share the site its own tagged link. Copy the link for where you are posting. All of them go to the same page, the tags only tell Google Analytics where the click came from.
+
+| Where you post | Link to copy |
+|---|---|
+| Facebook post | `https://farnhamfireworks.com/?utm_source=facebook&utm_medium=social&utm_campaign=fireworks2026` |
+| Instagram bio | `https://farnhamfireworks.com/?utm_source=instagram-bio&utm_medium=social&utm_campaign=fireworks2026` |
+| Instagram story | `https://farnhamfireworks.com/?utm_source=instagram-story&utm_medium=social&utm_campaign=fireworks2026` |
+| Email newsletter | `https://farnhamfireworks.com/?utm_source=newsletter&utm_medium=email&utm_campaign=fireworks2026` |
+| Poster QR code | `https://farnhamfireworks.com/?utm_source=poster-qr&utm_medium=print&utm_campaign=fireworks2026` |
+| Community group or WhatsApp | `https://farnhamfireworks.com/?utm_source=community-group&utm_medium=referral&utm_campaign=fireworks2026` |
+| Local press | `https://farnhamfireworks.com/?utm_source=local-press&utm_medium=referral&utm_campaign=fireworks2026` |
+
+- Use a different link for each place, otherwise Google Analytics can't tell them apart. For a second post in the same place, change the `utm_source` word (for example `facebook-ticket-reminder`).
+- Only use these links outside the site. Don't add tags to links between pages of the site itself, because that makes visitors look like they arrived from somewhere new.
+- In Google Analytics, open Reports, then Acquisition, then Traffic acquisition to see visitors by source and campaign.
+- Sources only carry through to ticket purchases once `tickettailor.com` is linked in Google Analytics (see below). Until then you will see visitors per source, but not who bought.
+
+**Count ticket purchases (key event).** Tickets are bought on Ticket Tailor, which is a different website, so Google Analytics only learns about a purchase if you set up both of these:
+
+1. In Ticket Tailor, add your Google Analytics measurement ID (the `G-` code) in its settings for Google Analytics tracking, so it reports `purchase` events.
+2. In Google Analytics, open Admin, then Data streams, choose the website stream, then Configure tag settings, then Configure your domains, and add `farnhamfireworks.com` and `tickettailor.com`. This keeps one visitor's journey together across both sites, so the purchase is credited to the post that brought them.
+
+Then mark the purchase as a key event: in Google Analytics open Admin, then Data display, then Events, find `purchase` in the list and switch on "Mark as key event" (the star). The event only appears in the list after the first purchase has been recorded, so if it isn't there yet, use "New key event", type `purchase` exactly, and save. Key events then show in Reports under Acquisition, with a column for each source. Google's menu names change now and then, so if one has moved, search the Analytics help for "mark an event as a key event".
+
 ## If the build fails
 
 The pull request shows a red cross and the "Details" link says what's wrong, for example `vendors → bootleg-bars data does not match collection schema: order: Required`. That names the file (`bootleg-bars`) and the missing or mistyped field (`order`). Fix it by editing the file again on the same pull request. Nothing reaches the live site until the check is green and the pull request is merged.
