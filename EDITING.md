@@ -57,6 +57,8 @@ Keep the quote marks and the spacing exactly as in the existing files. In the te
 
 **Change what the map says.** Edit the names and descriptions in `map.yaml`. The shapes and positions on the map are part of the site's design and aren't changed here.
 
+**Turn on visitor counting (Google Analytics).** Create a Google Analytics 4 property, then copy its measurement ID (it starts with `G-`). Open `src/content/site/site.yaml` and replace `G-XXXXXXXXXX` next to `googleAnalyticsId` with it. Until you do, the cookie banner and "Cookie settings" link are hidden and nothing is tracked. Once it is set, visitors see a banner with equal Accept and Decline buttons, and Google Analytics only loads after they press Accept. Their choice is remembered, and they can change it from "Cookie settings" in the footer.
+
 ## If the build fails
 
 The pull request shows a red cross and the "Details" link says what's wrong, for example `vendors → bootleg-bars data does not match collection schema: order: Required`. That names the file (`bootleg-bars`) and the missing or mistyped field (`order`). Fix it by editing the file again on the same pull request. Nothing reaches the live site until the check is green and the pull request is merged.
