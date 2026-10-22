@@ -2,7 +2,7 @@
 title: "Headline Partner"
 order: 10
 columns: 1
-showInvitation: true
+showInvitation: false
 invitationTitle: "Become our Headline Partner"
 ---
 
