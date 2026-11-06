@@ -26,16 +26,16 @@ zones:
     description: "Flame and flow artists perform two dazzling sets, at 6:45pm and 7:30pm."
   "taiko":
     name: "Taiko Drummers — Side Stage"
-    description: "Thunderous drumming at 6:15pm, plus a special set beside the bonfire at 7pm."
+    description: "Thunderous drumming at 5:15pm, plus a special set beside the bonfire at 6:55pm."
   "band":
     name: "Late to the Party — Main Stage"
-    description: "Late to the Party play two sets — opening at 5:30pm and closing the night at 8pm."
+    description: "Late to the Party play two sets — opening at 6pm and closing the night at 8:05pm."
   "food-south":
     name: "Food Stalls"
     description: "More food vendors serving from 5pm–9pm — past years have included BBQ, burgers, German sausages, Thai, vegan, loaded fries, Korean street food, churros and more."
   "bonfire":
     name: "Bonfire"
-    description: "Guy judging and bonfire lighting at 7:15pm, with Taiko drummers performing alongside at 7pm."
+    description: "Guy judging and bonfire lighting at 7:05pm, with Taiko drummers performing alongside at 6:55pm."
   "fireworks":
     name: "Fireworks Field"
     description: "The main fireworks display lights up the sky at 7:45pm for around 15 minutes."
@@ -48,7 +48,7 @@ zones:
 keyTimings:
   - "17:00 — Park opens"
   - "18:00 — Torchlit procession"
-  - "19:15 — Bonfire lighting"
+  - "19:05 — Bonfire lighting"
   - "19:45 — Fireworks"
   - "21:00 — Event ends"
 goodToKnow:
