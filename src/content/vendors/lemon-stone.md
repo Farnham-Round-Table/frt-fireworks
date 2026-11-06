@@ -2,7 +2,7 @@
 name: "Lemon Stone"
 type: "Smoked meats"
 order: 70
-logo: "lemon-stone.jpg"
+logo: "lemon-stone.webp"
 link: "https://lemonstone.co.uk/"
 linkLabel: "Visit website"
 ---

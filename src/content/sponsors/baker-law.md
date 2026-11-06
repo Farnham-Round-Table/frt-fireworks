@@ -2,7 +2,7 @@
 name: "Baker Law"
 tier: "headline"
 order: 10
-logo: "baker-law-logo.png"
+logo: "baker-law-logo.webp"
 link: "https://www.baker-law.co.uk/"
 ---
 

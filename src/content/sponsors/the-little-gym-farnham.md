@@ -2,7 +2,7 @@
 name: "The Little Gym Farnham"
 tier: "community-supporters"
 order: 20
-logo: "the-little-gym-farnham-logo.png"
+logo: "the-little-gym-farnham-logo.webp"
 link: "https://farnham.thelittlegym.co.uk/"
 ---
 

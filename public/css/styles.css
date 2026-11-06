@@ -242,3 +242,49 @@ summary {
     border-radius: 3px;
     flex: 0 0 auto;
 }
+
+/* Video: show a thumbnail and only load the YouTube player when it is clicked */
+.video-facade .video-play {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: #000;
+    cursor: pointer;
+}
+
+.video-facade .video-play img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-facade .video-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 68px;
+    height: 48px;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.video-facade .video-play-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    border-style: solid;
+    border-width: 11px 0 11px 19px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.video-facade .video-play:hover .video-play-icon,
+.video-facade .video-play:focus-visible .video-play-icon {
+    background: #f00;
+}

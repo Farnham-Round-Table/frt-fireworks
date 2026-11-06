@@ -10,8 +10,14 @@ if (!s.youtubeId) throw new Error('src/content/sections/video.md needs a youtube
   <div class="container">
     <SectionHeading icon={s.icon} title={s.title} />
     <s.Content />
-    <figure class="image is-16by9">
-      <iframe class="has-ratio" width="640" height="360" src={`https://www.youtube.com/embed/${s.youtubeId}?rel=0`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <figure class="image is-16by9 video-facade" data-video-id={s.youtubeId}>
+      <button type="button" class="video-play" aria-label="Play video">
+        <img src={`https://i.ytimg.com/vi/${s.youtubeId}/maxresdefault.jpg`} alt="" loading="lazy" width="1280" height="720" />
+        <span class="video-play-icon" aria-hidden="true"></span>
+      </button>
+      <noscript>
+        <a href={`https://www.youtube.com/watch?v=${s.youtubeId}`}>Watch the video on YouTube</a>
+      </noscript>
     </figure>
   </div>
 </section>

@@ -2,7 +2,7 @@
 name: "Crumpy's Smoke Shack"
 type: "BBQ, burgers"
 order: 10
-logo: "crumpys-smoke-shack.jpg"
+logo: "crumpys-smoke-shack.webp"
 link: "https://crumpyssmokeshack.co.uk/"
 linkLabel: "Visit website"
 ---
