@@ -94,7 +94,6 @@ summary {
 }
 
 .sponsor-featured .card-header-title {
-    justify-content: center;
     font-size: 1.5rem;
 }
 
@@ -114,7 +113,6 @@ summary {
 
 .sponsor-featured .card-content {
     font-size: 1.1rem;
-    text-align: center;
 }
 
 .sponsor-logo-pending {
