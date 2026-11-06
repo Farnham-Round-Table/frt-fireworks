@@ -2,7 +2,7 @@
 name: "Churros Ole Ltd"
 type: "Churros"
 order: 110
-logo: "churros-ole.png"
+logo: "churros-ole.webp"
 link: "https://churrosole.co.uk/"
 linkLabel: "Visit website"
 ---

@@ -2,7 +2,7 @@
 name: "Specsavers Farnham"
 tier: "community-supporters"
 order: 10
-logo: "specsavers-logo.png"
+logo: "specsavers-logo.webp"
 link: "https://www.specsavers.co.uk/stores/farnham"
 ---
 

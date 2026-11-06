@@ -31,7 +31,7 @@ Most files have a small block at the top between two `---` lines (the details), 
 name: "Hey Spud"
 type: "Loaded fries"
 order: 50
-logo: "hey-spud.png"
+logo: "hey-spud.webp"
 link: "https://www.heyspud.co.uk/"
 linkLabel: "Visit website"
 ---
@@ -72,3 +72,8 @@ npm run build    # builds the site into dist/
 ```
 
 The page layout is in `src/components` and `src/pages/index.astro`. The rules for every content file are in `src/content.config.ts`. Static files (CSS, images, fonts, scripts) live in `public/`. GitHub Actions builds the site and deploys `dist/` to Firebase Hosting.
+
+## Keeping the site light
+
+- **Images.** Please resize logos before uploading: about 256px wide for vendor logos and 640px wide for sponsor logos is plenty. Save them as `.webp` or a compressed `.jpg` (a free tool such as squoosh.app does this). Large originals slow the site down and cost bandwidth.
+- **Icons.** The site only ships the Font Awesome icons it uses (a trimmed font in `public/webfonts`). If you use a new icon name in an act or section file, it will show as an empty box until a developer adds the name to `tools/subset-fontawesome.sh` and runs it.

@@ -2,7 +2,7 @@
 name: "Hey Spud"
 type: "Loaded fries"
 order: 50
-logo: "hey-spud.png"
+logo: "hey-spud.webp"
 link: "https://www.heyspud.co.uk/"
 linkLabel: "Visit website"
 ---

@@ -20,4 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Load the YouTube player only when someone clicks the video thumbnail
+  document.querySelectorAll('.video-facade').forEach(figure => {
+    const button = figure.querySelector('.video-play');
+    if (!button) return;
+    button.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.className = 'has-ratio';
+      iframe.width = 640;
+      iframe.height = 360;
+      iframe.src = 'https://www.youtube.com/embed/' + encodeURIComponent(figure.dataset.videoId) + '?rel=0&autoplay=1';
+      iframe.title = 'YouTube video player';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.allowFullscreen = true;
+      figure.replaceChildren(iframe);
+    });
+  });
+
 });
