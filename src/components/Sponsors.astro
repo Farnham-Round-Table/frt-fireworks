@@ -34,8 +34,8 @@ const groups = await Promise.all(
           <div class={`fixed-grid has-1-cols-mobile has-${g.columns === 1 ? 1 : 2}-cols-tablet has-${g.columns}-cols-desktop`}>
             <div class="grid">
               {g.sponsors.map((sp) => (
-                <div class="cell">
-                  <div class="card">
+                <div class={`cell${g.columns === 1 ? ' sponsor-featured-cell' : ''}`}>
+                  <div class={`card${g.columns === 1 ? ' sponsor-featured' : ''}`}>
                     <div class="card-header">
                       <h3 class="card-header-title">{sp.name}</h3>
                     </div>
